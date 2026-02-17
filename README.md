@@ -37,7 +37,7 @@ An AI-powered math tutor that solves problems step-by-step with beautiful LaTeX 
 1. Clone this repository:
    ```bash
    git clone https://github.com/yourusername/mathbot.git
-   cd mathbot
+   cd mathbotgithub
    ```
 
 2. Install dependencies:
