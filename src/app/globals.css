@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Minimal prose styling for assistant messages */
+.prose {
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.prose p {
+  margin-bottom: 0.75em;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose pre {
+  background: #f4f4f5;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  margin: 0.75em 0;
+}
+
+.dark .prose pre {
+  background: #18181b;
+}
+
+.prose code {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.25em;
+  margin: 0.5em 0;
+}
+
+.prose li {
+  margin: 0.25em 0;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.prose h3 {
+  font-size: 1rem;
+}
+
+.prose h4 {
+  font-size: 0.9rem;
+}
+
+.prose blockquote {
+  border-left: 2px solid #d4d4d8;
+  padding-left: 1em;
+  margin: 0.75em 0;
+  color: #71717a;
+}
+
+.dark .prose blockquote {
+  border-left-color: #3f3f46;
+  color: #a1a1aa;
+}
+
+/* KaTeX overrides for cleaner look */
+.katex {
+  font-size: 1em !important;
+}
+
+.katex-display {
+  margin: 0.75em 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.katex-display > .katex {
+  white-space: normal;
+}
+
+/* Message animation */
+.animate-in {
+  animation: fadeSlideIn 0.25s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 2px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+
+
+/* Selection */
+::selection {
+  background: #a1a1aa40;
+}
